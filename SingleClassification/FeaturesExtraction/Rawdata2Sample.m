@@ -8,13 +8,14 @@ function sample = Rawdata2Sample(raw, windows, FeatureName)
     sample = [];
     for wd=0:Nwindows-1
         data = raw(wd*LI+1:wd*LI+LW);
-        sample_column = [];
+        sample_row = [];
         for nf = 1:length(FeatureName)
             function_handle = str2func([FeatureName{nf}, '_feature']);
-            sample_column = [sample_column; ...
+            sample_row = [sample_row, ...
                              function_handle(data)];
         end
-        sample = [sample, sample_column];
+        sample = [sample; ...
+                  sample_row];
     end
     
     
