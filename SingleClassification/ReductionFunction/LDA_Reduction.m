@@ -2,7 +2,6 @@
 % Input: 
 % 		Samples_Matrix, nx1-Cell, every cell is a supervised cluster.
 % 		d, number of reduction dimension.
-
 % Output:
 % 		centers, center of every conrresponding supervised cluster.
 % 		LDA_matrix, the dimension-reduction matrix with Principle Component Analysis.
@@ -14,7 +13,8 @@ function [LDA_centers, LDA_matrix] = LDA_Reduction(Samples_Matrix, d)
 	Width = size(Samples_Matrix{1}, 2);
 	xSw = zeros(Width);
 	SUM = zeros(1, Width);
-    nMotion = length(Samples_Matrix);
+    nMotion = length(Samples_Matrix)
+    center = zeros(nMotion, size(mean(Samples_Matrix{1},1),2));
 	for mv=1:nMotion
 		Specimen_Counts = size(Samples_Matrix{mv}, 1);
 		center(mv, :) = mean(Samples_Matrix{mv}, 1);
