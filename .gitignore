@@ -1,0 +1,14 @@
+# data restored files
+*.txt
+*.csv
+
+# matlab
+*.asv
+
+#Python
+*.pyc
+*.un~
+# ignore the .csv files, which are the source data file, but too large to git track, 
+# and there is no need for upload to github serve. It was never to change.
+*.csv
+*.mat
